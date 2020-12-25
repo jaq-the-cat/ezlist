@@ -44,11 +44,14 @@ class _ListStuffState extends State<ListStuff> {
             ),
             body: Padding(
                 padding: EdgeInsets.all(25),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: _stuff,
-                ),
+                child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: _stuff,
+                    ),
+                )
             ),
             floatingActionButton: FloatingActionButton(
                 onPressed: _incrementCounter,
