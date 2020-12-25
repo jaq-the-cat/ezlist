@@ -71,11 +71,18 @@ class Thingy extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        return Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-                Expanded(
-                    child: Container(
+        const double r = 12;
+        return Container(
+            margin: EdgeInsets.only(top: r),
+            decoration: BoxDecoration(
+                color: Colors.orangeAccent,
+                borderRadius: BorderRadius.circular(r),
+            ),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                    Container(
+                        padding: EdgeInsets.all(r - 2),
                         child: Text(
                             content,
                             style: TextStyle(
@@ -84,15 +91,19 @@ class Thingy extends StatelessWidget {
                             ),
                         ),
                         alignment: Alignment.centerLeft,
-                        margin: EdgeInsets.only(top: 10),
-                        padding: EdgeInsets.fromLTRB(14, 12, 12, 12),
-                        decoration: BoxDecoration(
-                            color: Colors.orangeAccent,
-                            borderRadius: BorderRadius.circular(4),
-                        ),
                     ),
+                    Container(
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: Icon(Icons.delete),
+                            ),
+                            decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.only(topRight: Radius.circular(r), bottomRight: Radius.circular(r)),
+                            ),
+                    ),
+                ]
             )
-        ]
         );
     }
 }
