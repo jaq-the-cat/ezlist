@@ -13,7 +13,7 @@ class Ezlist extends StatelessWidget {
                 primaryColor: Colors.deepOrange,
                 accentColor: Colors.deepOrange,
             ),
-            home: MainPage(title: 'ezlist'),
+            home: MainPage(title: 'EZLIST'),
         );
     }
 }
@@ -45,6 +45,7 @@ class _MainPageState extends State<MainPage> {
             body: Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                         Text(
                             'You have pushed the button this many times:',
