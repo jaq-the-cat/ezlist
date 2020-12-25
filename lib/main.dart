@@ -28,10 +28,12 @@ class ListStuff extends StatefulWidget {
 }
 
 class _ListStuffState extends State<ListStuff> {
-    List<String> _stuff;
+    List<String> _stuff = [];
 
     void _incrementCounter() {
-        setState(() {});
+        setState(() {
+            _stuff.add("Item " + (_stuff.length+1).toString());
+        });
     }
 
     @override
@@ -41,17 +43,18 @@ class _ListStuffState extends State<ListStuff> {
                 title: Text(widget.title),
             ),
             body: Padding(
-                padding: EdgeInsets.all(30),
+                padding: EdgeInsets.all(25),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                         Text(
-                            'You have pushed the button this many times:',
+                            'ur stuf:',
+                            style: Theme.of(context).textTheme.headline4,
                         ),
                         Text(
                             '$_stuff',
-                            style: Theme.of(context).textTheme.headline4,
+                            style: Theme.of(context).textTheme.bodyText1,
                         ),
                     ],
                 ),
