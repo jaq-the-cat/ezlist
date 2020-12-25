@@ -47,12 +47,7 @@ class _ListStuffState extends State<ListStuff> {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                        Text(
-                            'ur stuf:',
-                            style: Theme.of(context).textTheme.headline4,
-                        ),
-                    ] + _stuff,
+                    children: _stuff,
                 ),
             ),
             floatingActionButton: FloatingActionButton(
@@ -76,13 +71,14 @@ class Thingy extends StatelessWidget {
                 content,
                 style: TextStyle(
                     color: Colors.black,
+                    fontSize: 22,
                 )
             ),
             alignment: Alignment.centerLeft,
             margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.fromLTRB(14, 12, 12, 12),
             decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.orangeAccent,
                 borderRadius: BorderRadius.circular(4),
             ),
         );
