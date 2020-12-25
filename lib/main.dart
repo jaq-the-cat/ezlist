@@ -69,29 +69,25 @@ class Thingy extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        return Container(
-            child: Row(
-                children: <Widget>[
-                    Text(
+        return Row(
+            children: [
+                Container(
+                    child: Text(
                         content,
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 22,
-                        )
+                        ),
                     ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.delete, color: Colors.red),
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.fromLTRB(14, 12, 12, 12),
+                    decoration: BoxDecoration(
+                        color: Colors.orangeAccent,
+                        borderRadius: BorderRadius.circular(4),
                     ),
-                ]
-            ),
-            alignment: Alignment.centerLeft,
-            margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.fromLTRB(14, 12, 12, 12),
-            decoration: BoxDecoration(
-                color: Colors.orangeAccent,
-                borderRadius: BorderRadius.circular(4),
-            ),
+                ),
+            ]
         );
     }
 }
