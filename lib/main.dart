@@ -28,11 +28,11 @@ class ListStuff extends StatefulWidget {
 }
 
 class _ListStuffState extends State<ListStuff> {
-    List<String> _stuff = [];
+    List<Thingy> _stuff = [];
 
     void _incrementCounter() {
         setState(() {
-            _stuff.add("Item " + (_stuff.length+1).toString());
+            _stuff.add(Thingy(content: "Item " + (_stuff.length+1).toString()));
         });
     }
 
