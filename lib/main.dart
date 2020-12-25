@@ -74,23 +74,25 @@ class Thingy extends StatelessWidget {
         return Row(
             mainAxisSize: MainAxisSize.max,
             children: [
-                Container(
-                    child: Text(
-                        content,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 22,
+                Expanded(
+                    child: Container(
+                        child: Text(
+                            content,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 22,
+                            ),
+                        ),
+                        alignment: Alignment.centerLeft,
+                        margin: EdgeInsets.only(top: 10),
+                        padding: EdgeInsets.fromLTRB(14, 12, 12, 12),
+                        decoration: BoxDecoration(
+                            color: Colors.orangeAccent,
+                            borderRadius: BorderRadius.circular(4),
                         ),
                     ),
-                    alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.only(top: 10),
-                    padding: EdgeInsets.fromLTRB(14, 12, 12, 12),
-                    decoration: BoxDecoration(
-                        color: Colors.orangeAccent,
-                        borderRadius: BorderRadius.circular(4),
-                    ),
-                ),
-            ]
+            )
+        ]
         );
     }
 }
