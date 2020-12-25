@@ -42,16 +42,18 @@ class _ListStuffState extends State<ListStuff> {
             appBar: AppBar(
                 title: Text(widget.title),
             ),
-            body: Padding(
-                padding: EdgeInsets.all(25),
-                child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: _stuff,
-                    ),
-                )
+            body: SingleChildScrollView(
+                child: Padding(
+                    padding: EdgeInsets.all(25),
+                    child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: _stuff,
+                        ),
+                    )
+                ),
             ),
             floatingActionButton: FloatingActionButton(
                 onPressed: _incrementCounter,
@@ -70,6 +72,7 @@ class Thingy extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Row(
+            mainAxisSize: MainAxisSize.max,
             children: [
                 Container(
                     child: Text(
