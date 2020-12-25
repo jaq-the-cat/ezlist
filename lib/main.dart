@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
                 visualDensity: VisualDensity.adaptivePlatformDensity,
                 brightness: Brightness.dark,
-                primaryColor: Colors.orange,
-                accentColor: Colors.orange,
+                primaryColor: Colors.deepOrange,
+                accentColor: Colors.deepOrange,
             ),
             home: MyHomePage(title: 'ezlist'),
         );
