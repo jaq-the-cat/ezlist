@@ -70,12 +70,20 @@ class Thingy extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Container(
-            child: Text(
-                content,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 22,
-                )
+            child: Row(
+                children: <Widget>[
+                    Text(
+                        content,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,
+                        )
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.delete, color: Colors.red),
+                    ),
+                ]
             ),
             alignment: Alignment.centerLeft,
             margin: EdgeInsets.only(top: 10),
