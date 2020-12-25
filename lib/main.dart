@@ -13,27 +13,25 @@ class Ezlist extends StatelessWidget {
                 primaryColor: Colors.deepOrange,
                 accentColor: Colors.deepOrange,
             ),
-            home: MainPage(title: 'EZLIST'),
+            home: ListStuff(title: 'EZLIST'),
         );
     }
 }
 
-class MainPage extends StatefulWidget {
-    MainPage({Key key, this.title}) : super(key: key);
+class ListStuff extends StatefulWidget {
+    ListStuff({Key key, this.title}) : super(key: key);
 
     final String title;
 
     @override
-    _MainPageState createState() => _MainPageState();
+    _ListStuffState createState() => _ListStuffState();
 }
 
-class _MainPageState extends State<MainPage> {
-    int _counter = 0;
+class _ListStuffState extends State<ListStuff> {
+    List<String> _stuff;
 
     void _incrementCounter() {
-        setState(() {
-            _counter++;
-        });
+        setState(() {});
     }
 
     @override
@@ -52,7 +50,7 @@ class _MainPageState extends State<MainPage> {
                             'You have pushed the button this many times:',
                         ),
                         Text(
-                            '$_counter',
+                            '$_stuff',
                             style: Theme.of(context).textTheme.headline4,
                         ),
                     ],
