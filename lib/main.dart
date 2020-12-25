@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(App());
+void main() => runApp(Ezlist());
 
-class App extends StatelessWidget {
-    // This widget is the root of your application.
+class Ezlist extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return MaterialApp(
