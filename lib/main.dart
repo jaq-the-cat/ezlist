@@ -52,11 +52,7 @@ class _ListStuffState extends State<ListStuff> {
                             'ur stuf:',
                             style: Theme.of(context).textTheme.headline4,
                         ),
-                        Text(
-                            '$_stuff',
-                            style: Theme.of(context).textTheme.bodyText1,
-                        ),
-                    ],
+                    ] + _stuff,
                 ),
             ),
             floatingActionButton: FloatingActionButton(
@@ -77,10 +73,15 @@ class Thingy extends StatelessWidget {
     Widget build(BuildContext context) {
         return Container(
             child: Text(
-                content
+                content,
+                style: TextStyle(
+                    color: Colors.black,
+                )
             ),
             color: Colors.white,
             alignment: Alignment.centerLeft,
+            margin: EdgeInsets.only(top: 10),
+            padding: EdgeInsets.all(8),
         );
     }
 }
