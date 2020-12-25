@@ -78,10 +78,13 @@ class Thingy extends StatelessWidget {
                     color: Colors.black,
                 )
             ),
-            color: Colors.white,
             alignment: Alignment.centerLeft,
             margin: EdgeInsets.only(top: 10),
             padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(4),
+            ),
         );
     }
 }
