@@ -42,9 +42,10 @@ class _MainPageState extends State<MainPage> {
             appBar: AppBar(
                 title: Text(widget.title),
             ),
-            body: Center(
+            body: Padding(
+                padding: EdgeInsets.all(30),
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                         Text(
