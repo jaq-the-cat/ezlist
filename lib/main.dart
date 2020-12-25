@@ -67,3 +67,20 @@ class _ListStuffState extends State<ListStuff> {
         );
     }
 }
+
+class Thingy extends StatelessWidget {
+    Thingy({Key key, this.content}) : super(key: key);
+
+    final String content;
+
+    @override
+    Widget build(BuildContext context) {
+        return Container(
+            child: Text(
+                content
+            ),
+            color: Colors.white,
+            alignment: Alignment.centerLeft,
+        );
+    }
+}
