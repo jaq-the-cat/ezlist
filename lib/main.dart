@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(App());
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
     // This widget is the root of your application.
     @override
     Widget build(BuildContext context) {
@@ -14,21 +14,21 @@ class MyApp extends StatelessWidget {
                 primaryColor: Colors.deepOrange,
                 accentColor: Colors.deepOrange,
             ),
-            home: MyHomePage(title: 'ezlist'),
+            home: MainPage(title: 'ezlist'),
         );
     }
 }
 
-class MyHomePage extends StatefulWidget {
-    MyHomePage({Key key, this.title}) : super(key: key);
+class MainPage extends StatefulWidget {
+    MainPage({Key key, this.title}) : super(key: key);
 
     final String title;
 
     @override
-    _MyHomePageState createState() => _MyHomePageState();
+    _MainPageState createState() => _MainPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MainPageState extends State<MainPage> {
     int _counter = 0;
 
     void _incrementCounter() {
