@@ -12,7 +12,7 @@ class ListStuff extends StatefulWidget {
 class _ListStuffState extends State<ListStuff> {
     List<Widget> _stuff = [];
 
-    void _incrementCounter() {
+    void _addNewItem() {
         setState(() {
             _stuff.add(Thingy());
         });
@@ -38,8 +38,8 @@ class _ListStuffState extends State<ListStuff> {
                 ),
             ),
             floatingActionButton: FloatingActionButton(
-                onPressed: _incrementCounter,
-                tooltip: 'Increment',
+                onPressed: _addNewItem,
+                tooltip: 'Add new item',
                 child: Icon(Icons.add),
             ), // This trailing comma makes auto-formatting nicer for build methods.
         );
