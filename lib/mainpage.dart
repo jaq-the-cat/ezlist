@@ -53,12 +53,12 @@ class Thingy extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
+        const double h = 70;
         const double r = 10;
         return Container(
-            height: 58,
+            height: h,
             margin: EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(
-                color: Colors.orangeAccent,
                 borderRadius: BorderRadius.circular(r),
             ),
             child: Row(
@@ -68,14 +68,10 @@ class Thingy extends StatelessWidget {
                         child: ThingyInput(),
                     ),
                     Container(
-                        height: 64,
+                        height: h,
                         child: IconButton(
                             onPressed: () {},
                             icon: Icon(Icons.delete),
-                        ),
-                        decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.only(topRight: Radius.circular(r), bottomRight: Radius.circular(r)),
                         ),
                     ),
                 ]
@@ -90,14 +86,10 @@ class ThingyInput extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(left: 10),
             child: TextField(
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 22,
-                ),
                 decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(10),
+                    contentPadding: EdgeInsets.all(5),
                     labelText: "New Item",
                 )
             ),
