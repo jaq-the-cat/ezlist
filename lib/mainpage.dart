@@ -23,8 +23,7 @@ class _ListStuffState extends State<ListStuff> {
     void _removeItem(int k) {
         setState(() {
             print(_stuff);
-            print(k);
-            _stuff.remove(k);
+            print(k.toString() + " " + _stuff.containsKey(k).toString());
         });
     }
 
