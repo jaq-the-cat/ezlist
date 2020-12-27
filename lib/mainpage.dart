@@ -15,13 +15,17 @@ class _ListStuffState extends State<ListStuff> {
 
     void _addNewItem() {
         setState(() {
-            _stuff[i] = Thingy(delete: () => _removeItem(i));
+            _stuff[i] = Thingy(i: i, delete: _removeItem);
             i++;
         });
     }
 
     void _removeItem(int j) {
-        setState(() => _stuff.remove(j));
+        setState(() {
+            print(_stuff);
+            print(j);
+            _stuff.remove(j);
+        });
     }
 
     @override
@@ -38,7 +42,7 @@ class _ListStuffState extends State<ListStuff> {
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: _stuff.values,
+                            children: _stuff.values.toList(),
                         ),
                     )
                 ),
@@ -53,9 +57,10 @@ class _ListStuffState extends State<ListStuff> {
 }
 
 class Thingy extends StatelessWidget {
-    Thingy({Key key, this.delete}) : super(key: key);
+    Thingy({Key key, this.i, this.delete}) : super(key: key);
 
-    final VoidCallback delete;
+    final int i;
+    final Function(int) delete;
 
     @override
     Widget build(BuildContext context) {
@@ -76,7 +81,7 @@ class Thingy extends StatelessWidget {
                     Container(
                         height: h,
                         child: IconButton(
-                            onPressed: delete,
+                            onPressed: () => delete(i),
                             icon: Icon(Icons.delete),
                         ),
                     ),
