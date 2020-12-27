@@ -14,7 +14,7 @@ class _ListStuffState extends State<ListStuff> {
 
     void _incrementCounter() {
         setState(() {
-            _stuff.add(Thingy(content: "Item " + (_stuff.length+1).toString()));
+            _stuff.add(Thingy(content: "New Item"));
         });
     }
 
@@ -63,17 +63,7 @@ class Thingy extends StatelessWidget {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                    Container(
-                        padding: EdgeInsets.all(r - 2),
-                        child: Text(
-                            content,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 22,
-                            ),
-                        ),
-                        alignment: Alignment.centerLeft,
-                    ),
+                    ThingyInput(),
                     Container(
                             child: IconButton(
                                 onPressed: () {},
@@ -88,4 +78,23 @@ class Thingy extends StatelessWidget {
             )
         );
     }
+}
+
+class ThingyInput extends StatelessWidget {
+    ThingyInput({Key key}) : super(key: key);
+
+    @override
+    Widget build(BuildContext context) {
+        return Container(
+            padding: EdgeInsets.all(10),
+            child: TextFormField(
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 22,
+                ),
+            ),
+            alignment: Alignment.centerLeft,
+        );
+    }
+
 }
