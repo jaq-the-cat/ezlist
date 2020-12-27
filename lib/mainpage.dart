@@ -11,7 +11,7 @@ class ListStuff extends StatefulWidget {
 
 class _ListStuffState extends State<ListStuff> {
     int i = 0;
-    Map<int, Widget> _stuff = {};
+    Map<int, Thingy> _stuff = {};
 
     void _addNewItem() {
         setState(() {
@@ -22,8 +22,10 @@ class _ListStuffState extends State<ListStuff> {
 
     void _removeItem(int k) {
         setState(() {
-            print(_stuff);
-            print(k.toString() + " " + _stuff.containsKey(k).toString());
+            print(k);
+            _stuff.forEach((i, s) {
+                print('$i -> ${s.hashCode}');
+            });
         });
     }
 
