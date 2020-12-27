@@ -13,14 +13,14 @@ class _ListStuffState extends State<ListStuff> {
     int i = 0;
     Map<int, Thingy> _stuff = {};
 
-    void _addNewItem() {
+    void addNewItem() {
         setState(() {
-            _stuff[i] = Thingy(j: i, delete: _removeItem);
+            _stuff[i] = Thingy(j: i, delete: removeItem);
             i++;
         });
     }
 
-    void _removeItem(int k) {
+    void removeItem(int k) {
         setState(() {
             print(k);
             _stuff.forEach((i, s) {
@@ -31,28 +31,10 @@ class _ListStuffState extends State<ListStuff> {
 
     @override
     Widget build(BuildContext context) {
-        return Scaffold(
-            appBar: AppBar(
-                title: Text(widget.title),
-            ),
-            body: SingleChildScrollView(
-                child: Padding(
-                    padding: EdgeInsets.all(25),
-                    child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: _stuff.values.toList(),
-                        ),
-                    )
-                ),
-            ),
-            floatingActionButton: FloatingActionButton(
-                onPressed: _addNewItem,
-                tooltip: 'Add new item',
-                child: Icon(Icons.add),
-            ), // This trailing comma makes auto-formatting nicer for build methods.
+        return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: _stuff.values.toList(),
         );
     }
 }
