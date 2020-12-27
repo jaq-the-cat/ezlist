@@ -14,7 +14,7 @@ class _ListStuffState extends State<ListStuff> {
 
     void _incrementCounter() {
         setState(() {
-            _stuff.add(Thingy(label: "New Item " + (_stuff.length + 1).toString()));
+            _stuff.add(Thingy());
         });
     }
 
@@ -47,9 +47,7 @@ class _ListStuffState extends State<ListStuff> {
 }
 
 class Thingy extends StatelessWidget {
-    Thingy({Key key, this.label}) : super(key: key);
-
-    final String label;
+    Thingy({Key key}) : super(key: key);
 
     @override
     Widget build(BuildContext context) {
@@ -65,7 +63,7 @@ class Thingy extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                     Expanded(
-                        child: ThingyInput(label: label),
+                        child: ThingyInput(),
                     ),
                     Container(
                         height: h,
@@ -81,9 +79,7 @@ class Thingy extends StatelessWidget {
 }
 
 class ThingyInput extends StatelessWidget {
-    ThingyInput({Key key, this.label}) : super(key: key);
-
-    final String label;
+    ThingyInput({Key key}) : super(key: key);
 
     @override
     Widget build(BuildContext context) {
@@ -92,7 +88,7 @@ class ThingyInput extends StatelessWidget {
             child: TextField(
                 decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(5),
-                    labelText: label,
+                    labelText: "New Item",
                 )
             ),
             alignment: Alignment.centerLeft,
