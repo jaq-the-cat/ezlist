@@ -10,7 +10,7 @@ class ListStuff extends StatefulWidget {
 }
 
 class _ListStuffState extends State<ListStuff> {
-    List<Thingy> _stuff = [];
+    List<Widget> _stuff = [];
 
     void _incrementCounter() {
         setState(() {
@@ -53,9 +53,10 @@ class Thingy extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        const double r = 12;
+        const double r = 10;
         return Container(
-            margin: EdgeInsets.only(top: r),
+            height: 58,
+            margin: EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(
                 color: Colors.orangeAccent,
                 borderRadius: BorderRadius.circular(r),
@@ -63,16 +64,19 @@ class Thingy extends StatelessWidget {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                    ThingyInput(),
+                    Expanded(
+                        child: ThingyInput(),
+                    ),
                     Container(
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.delete),
-                            ),
-                            decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.only(topRight: Radius.circular(r), bottomRight: Radius.circular(r)),
-                            ),
+                        height: 64,
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.delete),
+                        ),
+                        decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.only(topRight: Radius.circular(r), bottomRight: Radius.circular(r)),
+                        ),
                     ),
                 ]
             )
@@ -87,11 +91,15 @@ class ThingyInput extends StatelessWidget {
     Widget build(BuildContext context) {
         return Container(
             padding: EdgeInsets.all(10),
-            child: TextFormField(
+            child: TextField(
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 22,
                 ),
+                decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(10),
+                    labelText: "New Item",
+                )
             ),
             alignment: Alignment.centerLeft,
         );
