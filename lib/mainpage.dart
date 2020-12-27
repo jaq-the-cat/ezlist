@@ -13,9 +13,11 @@ class _ListStuffState extends State<ListStuff> {
     List<Widget> _stuff = [];
 
     void _addNewItem() {
-        setState(() {
-            _stuff.add(Thingy());
-        });
+        setState(() =>_stuff.add(Thingy(delete: _removeItem)));
+    }
+
+    void _removeItem(Widget i) {
+        setState(() => _stuff.remove(i));
     }
 
     @override
@@ -47,7 +49,9 @@ class _ListStuffState extends State<ListStuff> {
 }
 
 class Thingy extends StatelessWidget {
-    Thingy({Key key}) : super(key: key);
+    Thingy({Key key, this.delete}) : super(key: key);
+
+    final void Function(Widget) delete;
 
     @override
     Widget build(BuildContext context) {
@@ -68,7 +72,7 @@ class Thingy extends StatelessWidget {
                     Container(
                         height: h,
                         child: IconButton(
-                            onPressed: () {},
+                            onPressed: () => delete(this),
                             icon: Icon(Icons.delete),
                         ),
                     ),
