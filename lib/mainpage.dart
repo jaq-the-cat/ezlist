@@ -22,17 +22,14 @@ class _ListStuffState extends State<ListStuff> {
 
     void removeItem(int k) {
         setState(() {
-            print(k);
-            _stuff.forEach((i, s) {
-                print('$i -> ${s.hashCode}');
-            });
+            print(_stuff);
+            _stuff.remove(k);
         });
     }
 
     @override
     Widget build(BuildContext context) {
         return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children:
                 <Widget>[
