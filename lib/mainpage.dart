@@ -33,8 +33,16 @@ class _ListStuffState extends State<ListStuff> {
     Widget build(BuildContext context) {
         return Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: _stuff.values.toList(),
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children:
+                <Widget>[
+                    FlatButton(
+                        child: Text("New Item"),
+                        color: Colors.orange,
+                        textColor: Colors.black,
+                        onPressed: addNewItem,
+                    ),
+                ] + _stuff.values.toList(),
         );
     }
 }
