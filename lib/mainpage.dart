@@ -18,6 +18,12 @@ class _ListStuffState extends State<ListStuff> {
         });
     }
 
+    void setItemAt(int j, String t) {
+        setState(() {
+            _list[j] = t;
+        });
+    }
+
     void removeItem(int k) {
         setState(() {
             _list.remove(k);
@@ -26,8 +32,8 @@ class _ListStuffState extends State<ListStuff> {
 
     List<Widget> buildWidgets() {
         List<Widget> l = [];
-        _list.forEach((j, e) {
-            Thingy(delete: () => removeItem(j));
+        _list.forEach((i, e) {
+            Thingy(onChanged: (t) => setItemAt(i, t), delete: () => removeItem(i));
         });
         return l;
     }
@@ -77,7 +83,13 @@ class Thingy extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                     Expanded(
-                        child: ThingyInput(onChanged: onChanged),
+                        child: Container(
+                            padding: EdgeInsets.only(left: 10),
+                            child: TextField(
+                                onChanged: onChanged,
+                            ),
+                            alignment: Alignment.centerLeft,
+                        ),
                     ),
                     Container(
                         height: h,
@@ -88,23 +100,6 @@ class Thingy extends StatelessWidget {
                     ),
                 ]
             )
-        );
-    }
-}
-
-class ThingyInput extends StatelessWidget {
-    ThingyInput({Key key, this.onChanged}) : super(key: key);
-
-    final Function(String) onChanged;
-
-    @override
-    Widget build(BuildContext context) {
-        return Container(
-            padding: EdgeInsets.only(left: 10),
-            child: TextField(
-                onChanged: onChanged,
-            ),
-            alignment: Alignment.centerLeft,
         );
     }
 }
