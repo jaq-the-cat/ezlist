@@ -58,8 +58,9 @@ class _ListStuffState extends State<ListStuff> {
 }
 
 class Thingy extends StatelessWidget {
-    Thingy({Key key, this.delete}) : super(key: key);
+    Thingy({Key key, @required this.onChanged, @required this.delete}) : super(key: key);
 
+    final Function(String) onChanged;
     final Function() delete;
 
     @override
@@ -76,7 +77,7 @@ class Thingy extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                     Expanded(
-                        child: ThingyInput(itemNum: "x"),
+                        child: ThingyInput(onChanged: onChanged),
                     ),
                     Container(
                         height: h,
@@ -91,25 +92,17 @@ class Thingy extends StatelessWidget {
     }
 }
 
-class ThingyInput extends StatefulWidget {
-    ThingyInput({Key key, this.itemNum}) : super(key: key);
+class ThingyInput extends StatelessWidget {
+    ThingyInput({Key key, this.onChanged}) : super(key: key);
 
-    final String itemNum;
-
-    @override
-    _ThingyInputState createState() => _ThingyInputState();
-}
-
-class _ThingyInputState extends State<ThingyInput> {
-
-    String content = '';
+    final Function(String) onChanged;
 
     @override
     Widget build(BuildContext context) {
         return Container(
             padding: EdgeInsets.only(left: 10),
             child: TextField(
-                onChanged: (text) => this.content = text,
+                onChanged: onChanged,
             ),
             alignment: Alignment.centerLeft,
         );
