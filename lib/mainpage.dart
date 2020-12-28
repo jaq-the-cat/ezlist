@@ -95,12 +95,15 @@ class ThingyInput extends StatefulWidget {
 }
 
 class _ThingyInputState extends State<ThingyInput> {
+
+    String content = '';
+
     @override
     Widget build(BuildContext context) {
         return Container(
             padding: EdgeInsets.only(left: 10),
             child: TextField(
-
+                onChanged: (text) => this.content = text,
             ),
             alignment: Alignment.centerLeft,
         );
