@@ -32,8 +32,8 @@ class _ListStuffState extends State<ListStuff> {
 
     List<Widget> buildWidgets() {
         List<Widget> l = [];
-        _list.forEach((i, e) {
-            l.add(Thingy(onChanged: (t) => setItemAt(i, t), delete: () => removeItem(i)));
+        _list.forEach((i, text) {
+            l.add(Thingy(initial: text, onChanged: (t) => setItemAt(i, t), delete: () => removeItem(i)));
         });
         return l;
     }
@@ -64,10 +64,10 @@ class _ListStuffState extends State<ListStuff> {
 }
 
 class Thingy extends StatelessWidget {
-    Thingy({Key key, @required this.onChanged, @required this.delete}) : super(key: key);
+    Thingy({Key key, @required this.initial, @required this.onChanged, @required this.delete}) : super(key: key);
 
+    final String initial;
     final _controller = TextEditingController();
-    final _initial = "New value";
 
     final Function(String) onChanged;
     final Function() delete;
@@ -75,9 +75,9 @@ class Thingy extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         _controller.value = TextEditingValue(
-            text: _initial,
+            text: initial,
             selection: TextSelection.fromPosition(
-                TextPosition(offset: _initial.length),
+                TextPosition(offset: initial.length),
             ),
         );
         const double h = 70;
