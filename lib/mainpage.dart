@@ -9,20 +9,27 @@ class ListStuff extends StatefulWidget {
 
 class _ListStuffState extends State<ListStuff> {
     int i = 0;
-    Map<int, Thingy> _stuff = {};
+    Map<int, String> _list = {};
 
     void addNewItem() {
         setState(() {
-            _stuff[i] = Thingy(j: i, delete: removeItem);
+            _list[i] = '';
             i++;
         });
     }
 
     void removeItem(int k) {
         setState(() {
-            print(_stuff);
-            _stuff.remove(k);
+            _list.remove(k);
         });
+    }
+
+    List<Widget> buildWidgets() {
+        List<Widget> l = [];
+        _list.forEach((j, e) {
+            Thingy(delete: () => removeItem(j));
+        });
+        return l;
     }
 
     @override
@@ -45,16 +52,15 @@ class _ListStuffState extends State<ListStuff> {
                             ],
                         ),
                     ),
-                ] + _stuff.values.toList(),
+                ] + buildWidgets(),
         );
     }
 }
 
 class Thingy extends StatelessWidget {
-    Thingy({Key key, this.j, this.delete}) : super(key: key);
+    Thingy({Key key, this.delete}) : super(key: key);
 
-    final int j;
-    final Function(int) delete;
+    final Function() delete;
 
     @override
     Widget build(BuildContext context) {
@@ -70,12 +76,12 @@ class Thingy extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                     Expanded(
-                        child: ThingyInput(itemNum: j.toString()),
+                        child: ThingyInput(itemNum: "x"),
                     ),
                     Container(
                         height: h,
                         child: IconButton(
-                            onPressed: () => delete(this.j),
+                            onPressed: delete,
                             icon: Icon(Icons.delete),
                         ),
                     ),
