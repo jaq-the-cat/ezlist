@@ -33,11 +33,19 @@ class _ListStuffState extends State<ListStuff> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children:
                 <Widget>[
-                    FlatButton(
-                        child: Text("New Item"),
-                        color: Colors.orange,
-                        textColor: Colors.black,
-                        onPressed: addNewItem,
+                    FractionallySizedBox(
+                        widthFactor: 1.0,
+                        child:  Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                                FlatButton(
+                                    child: Text("New Item"),
+                                    color: Colors.orange,
+                                    textColor: Colors.black,
+                                    onPressed: addNewItem,
+                                )
+                            ],
+                        ),
                     ),
                 ] + _stuff.values.toList(),
         );
@@ -64,7 +72,7 @@ class Thingy extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                     Expanded(
-                        child: ThingyInput(),
+                        child: ThingyInput(itemNum: j.toString()),
                     ),
                     Container(
                         height: h,
@@ -80,7 +88,9 @@ class Thingy extends StatelessWidget {
 }
 
 class ThingyInput extends StatelessWidget {
-    ThingyInput({Key key}) : super(key: key);
+    ThingyInput({Key key, this.itemNum}) : super(key: key);
+
+    final String itemNum;
 
     @override
     Widget build(BuildContext context) {
@@ -89,7 +99,7 @@ class ThingyInput extends StatelessWidget {
             child: TextField(
                 decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(5),
-                    labelText: "New Item",
+                    labelText: "Item $itemNum",
                 )
             ),
             alignment: Alignment.centerLeft,
