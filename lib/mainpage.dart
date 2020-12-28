@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ListStuff extends StatefulWidget {
-    ListStuff({Key key, this.title}) : super(key: key);
-
-    final String title;
+    ListStuff({Key key}) : super(key: key);
 
     @override
     _ListStuffState createState() => _ListStuffState();
@@ -87,23 +85,24 @@ class Thingy extends StatelessWidget {
     }
 }
 
-class ThingyInput extends StatelessWidget {
+class ThingyInput extends StatefulWidget {
     ThingyInput({Key key, this.itemNum}) : super(key: key);
 
     final String itemNum;
 
     @override
+    _ThingyInputState createState() => _ThingyInputState();
+}
+
+class _ThingyInputState extends State<ThingyInput> {
+    @override
     Widget build(BuildContext context) {
         return Container(
             padding: EdgeInsets.only(left: 10),
             child: TextField(
-                decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(5),
-                    labelText: "Item $itemNum",
-                )
+
             ),
             alignment: Alignment.centerLeft,
         );
     }
-
 }
