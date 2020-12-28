@@ -66,11 +66,20 @@ class _ListStuffState extends State<ListStuff> {
 class Thingy extends StatelessWidget {
     Thingy({Key key, @required this.onChanged, @required this.delete}) : super(key: key);
 
+    final _controller = TextEditingController();
+    final _initial = "New value";
+
     final Function(String) onChanged;
     final Function() delete;
 
     @override
     Widget build(BuildContext context) {
+        _controller.value = TextEditingValue(
+            text: _initial,
+            selection: TextSelection.fromPosition(
+                TextPosition(offset: _initial.length),
+            ),
+        );
         const double h = 70;
         const double r = 10;
         return Container(
