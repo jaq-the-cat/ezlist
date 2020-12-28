@@ -17,7 +17,6 @@ class Ezlist extends StatelessWidget {
                 primaryColor: Colors.deepOrange,
                 accentColor: Colors.deepOrange,
             ),
-            //home: ListStuff(title: 'EZLIST'),
             home: Scaffold(
                 appBar: AppBar(
                     title: Text('EZLIST'),
