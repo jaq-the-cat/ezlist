@@ -33,7 +33,7 @@ class _ListStuffState extends State<ListStuff> {
     List<Widget> buildWidgets() {
         List<Widget> l = [];
         _list.forEach((i, e) {
-            Thingy(onChanged: (t) => setItemAt(i, t), delete: () => removeItem(i));
+            l.add(Thingy(onChanged: (t) => setItemAt(i, t), delete: () => removeItem(i)));
         });
         return l;
     }
