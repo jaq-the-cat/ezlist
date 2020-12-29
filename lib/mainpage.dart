@@ -63,7 +63,7 @@ class ListWItem extends StatelessWidget {
                         ),
                         decoration: BoxDecoration(
                             color: Colors.red,
-                            borderRadius: BorderRadius.only(topRight: Radius.circular(4), bottomRight: Radius.circular(4)),
+                            borderRadius: BorderRadius.only(topRight: Radius.circular(rad-2), bottomRight: Radius.circular(rad-2)),
                         )
                     ),
                 ],
