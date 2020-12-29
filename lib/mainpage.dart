@@ -41,6 +41,8 @@ class ListWItem extends StatelessWidget {
 
     final String text;
 
+    final double rad = 6;
+
     @override
     Widget build(BuildContext context) {
         return Container(
@@ -54,9 +56,15 @@ class ListWItem extends StatelessWidget {
                             fontSize: 18,
                         )
                     ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.delete),
+                    Container(
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.delete),
+                        ),
+                        decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.only(topRight: Radius.circular(4), bottomRight: Radius.circular(4)),
+                        )
                     ),
                 ],
             ),
@@ -65,8 +73,8 @@ class ListWItem extends StatelessWidget {
                     color: Colors.orangeAccent,
                     width: 1.5,
                 ),
-                borderRadius: BorderRadius.circular(6),
-            )
+                borderRadius: BorderRadius.circular(rad),
+            ),
         );
     }
 }
