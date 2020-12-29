@@ -37,7 +37,6 @@ class _ListWState extends State<ListW> {
     }
 
     void buildWidgets() {
-        print("${this.widgets}");
         setState(() {
             widgets.clear();
 
