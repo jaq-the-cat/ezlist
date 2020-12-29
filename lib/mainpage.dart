@@ -24,7 +24,7 @@ class _ListWState extends State<ListW> {
         List<Widget> c = [];
         for (String e in list) {
             c.add(ListWItem(text: e));
-            c.add(SizedBox(height: 5));
+            c.add(SizedBox(height: 10));
         }
         c.removeAt(c.length-1); // remove last SizedBox
         return c;
@@ -40,7 +40,7 @@ class _ListWState extends State<ListW> {
                     child: Text("New Item"),
                     color: Colors.orange,
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 15),
             ] + buildWidgets(),
         );
     }
