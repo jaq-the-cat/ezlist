@@ -57,11 +57,9 @@ class _ListWState extends State<ListW> {
                 this.inputThere = true;
             }
 
-            List<String> values = list.values.toList();
-            values.sort();
-            values.reversed;
-            for (int i=0; i<values.length; i++)
-                addToWidgets(ListWItem(text: values[i], onPressed: () => removeAt(i)), 10); // re-add them
+            list.forEach((k, e) {
+                addToWidgets(ListWItem(text: e, onPressed: () => removeAt(k)), 10); // re-add them
+            });
 
             if (widgets.length > 2)
                 widgets.removeAt(widgets.length-1); // remove last SizedBox
