@@ -17,9 +17,15 @@ class _ListWState extends State<ListW> {
 
     _ListWState() {
         widgets = [
-            ElevatedButton(
-                onPressed: onNewItemPressed,
-                child: Text("New Item"),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                    ElevatedButton(
+                        onPressed: onNewItemPressed,
+                        child: Text("New Item"),
+                    ),
+                ],
             ),
             SizedBox(height: 10),
         ];
