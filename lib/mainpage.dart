@@ -33,6 +33,7 @@ class _ListWState extends State<ListW> {
     void onSubmitPressed(String e) {
         setState(() {
             this.input = false;
+            list.insert(0, e);
         });
     }
 
