@@ -41,7 +41,9 @@ class _ListWState extends State<ListW> {
             addToWidgets(TextFormField());
 
         for (String e in list)
-            addToWidgets(ListWItem(text: e)); // re-add them
+            addToWidgets(ListWItem(text: e, onPressed: () {
+                setState(() => input = true);
+            })); // re-add them
 
         widgets.removeAt(widgets.length-1); // remove last SizedBox
     }
@@ -57,9 +59,10 @@ class _ListWState extends State<ListW> {
 }
 
 class ListWItem extends StatelessWidget {
-    ListWItem({Key key, @required this.text}) : super(key: key);
+    ListWItem({Key key, @required this.text, @required this.onPressed}) : super(key: key);
 
     final String text;
+    final VoidCallback onPressed;
 
     final double rad = 6;
 
