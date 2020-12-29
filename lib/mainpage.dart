@@ -46,7 +46,7 @@ class _ListWState extends State<ListW> {
     void editAt(int i, String e) =>
         setState(() => list[i] = e);
 
-    void addToWidgets(Widget w) {
+    void addToWidgets(Widget w, int separator) {
         widgets.add(w);
         widgets.add(SizedBox(height: 10));
     }
@@ -55,10 +55,10 @@ class _ListWState extends State<ListW> {
         widgets.removeRange(2, widgets.length); // clear list widgets
 
         if (input)
-            addToWidgets(NewItemForm(onSubmit: onSubmitPressed));
+            addToWidgets(NewItemForm(onSubmit: onSubmitPressed), 25);
 
         for (String e in list)
-            addToWidgets(ListWItem(text: e, onPressed: onDeletePressed)); // re-add them
+            addToWidgets(ListWItem(text: e, onPressed: onDeletePressed), 10); // re-add them
 
         widgets.removeAt(widgets.length-1); // remove last SizedBox
     }
