@@ -20,6 +20,14 @@ class _ListWState extends State<ListW> {
         SizedBox(height: 10),
     ];
 
+    void onNewItemPressed() {
+        setState(() => input = true);
+    }
+
+    void onAcceptPressed() {
+            setState(() => input = false);
+    }
+
     void add(String e) =>
         setState(() => list.add(e));
 
@@ -37,13 +45,11 @@ class _ListWState extends State<ListW> {
     void buildWidgets() {
         widgets.removeRange(2, widgets.length); // clear list widgets
 
-        //if (input)
-            //addToWidgets(); // TODO: stuff
+        if (input)
+            addToWidgets(ListWItem(text: "New", onPressed: onAcceptPressed));
 
         for (String e in list)
-            addToWidgets(ListWItem(text: e, onPressed: () {
-                setState(() => input = true);
-            })); // re-add them
+            addToWidgets(ListWItem(text: e, onPressed: onNewItemPressed)); // re-add them
 
         widgets.removeAt(widgets.length-1); // remove last SizedBox
     }
