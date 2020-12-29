@@ -37,8 +37,8 @@ class _ListWState extends State<ListW> {
     void buildWidgets() {
         widgets.removeRange(2, widgets.length); // clear list widgets
 
-        if (input)
-            addToWidgets(TextFormField());
+        //if (input)
+            //addToWidgets(); // TODO: stuff
 
         for (String e in list)
             addToWidgets(ListWItem(text: e, onPressed: () {
