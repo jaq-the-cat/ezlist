@@ -30,8 +30,10 @@ class _ListWState extends State<ListW> {
         setState(() => this.input = true);
     }
 
-    void onSubmitPressed() {
-        setState(() => this.input = false);
+    void onSubmitPressed(String e) {
+        setState(() {
+            this.input = false;
+        });
     }
 
     void onDeletePressed() {}
