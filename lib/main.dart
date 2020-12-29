@@ -5,8 +5,6 @@ void main() => runApp(Ezlist());
 
 class Ezlist extends StatelessWidget {
 
-    final ListStuff list = ListStuff();
-
     @override
     Widget build(BuildContext context) {
         return MaterialApp(
@@ -26,7 +24,7 @@ class Ezlist extends StatelessWidget {
                         padding: EdgeInsets.all(25),
                         child: SingleChildScrollView(
                             scrollDirection: Axis.vertical,
-                            child: list,
+                            child: ListW(),
                         )
                     ),
                 ),
