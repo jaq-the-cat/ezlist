@@ -22,17 +22,25 @@ class _ListWState extends State<ListW> {
 
     List<Widget> buildWidgets() {
         List<Widget> c = [];
-        for (String e in list)
+        for (String e in list) {
             c.add(ListWItem(text: e));
+            c.add(SizedBox(height: 5));
+        }
+        c.removeAt(c.length-1); // remove last SizedBox
         return c;
     }
 
     @override
     Widget build(BuildContext context) {
-        return Wrap(
-            runSpacing: 15,
+        return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-
+                FlatButton(
+                    onPressed: () {},
+                    child: Text("New Item"),
+                    color: Colors.orange,
+                ),
+                SizedBox(height: 5),
             ] + buildWidgets(),
         );
     }
