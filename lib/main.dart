@@ -16,7 +16,7 @@ class Ezlist extends StatelessWidget {
                 accentColor: Colors.orange,
                 elevatedButtonTheme: ElevatedButtonThemeData(
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.deepOrange,
+                        primary: Colors.orange,
                     ),
                 ),
             ),
