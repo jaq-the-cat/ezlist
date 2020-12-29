@@ -11,6 +11,15 @@ class _ListWState extends State<ListW> {
 
     List<String> list = ["Hello", "Goodbye"];
 
+    List<Widget> widgets = [
+        FlatButton(
+            onPressed: () {},
+            child: Text("New Item"),
+            color: Colors.orange,
+        ),
+        SizedBox(height: 10),
+    ];
+
     void add(String e) =>
         setState(() => list.add(e));
 
@@ -20,28 +29,21 @@ class _ListWState extends State<ListW> {
     void editAt(int i, String e) =>
         setState(() => list[i] = e);
 
-    List<Widget> buildWidgets() {
-        List<Widget> c = [];
+    void buildWidgets() {
+        widgets.removeRange(2, widgets.length); // clear list widgets
         for (String e in list) {
-            c.add(ListWItem(text: e));
-            c.add(SizedBox(height: 10));
-        }
-        c.removeAt(c.length-1); // remove last SizedBox
-        return c;
+            widgets.add(ListWItem(text: e));
+            widgets.add(SizedBox(height: 10));
+        } // re-add them
+        widgets.removeAt(widgets.length-1); // remove last SizedBox
     }
 
     @override
     Widget build(BuildContext context) {
+        buildWidgets();
         return Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-                FlatButton(
-                    onPressed: () {},
-                    child: Text("New Item"),
-                    color: Colors.orange,
-                ),
-                SizedBox(height: 15),
-            ] + buildWidgets(),
+            children: widgets,
         );
     }
 }
