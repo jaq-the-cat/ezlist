@@ -22,7 +22,11 @@ class _NewItemFormState extends State<NewItemForm> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                     Expanded(
-                        child: TextFormField(),
+                        child: TextFormField(
+                            decoration: InputDecoration(
+                                labelText: "New Item",
+                            )
+                        ),
                     ),
                     ElevatedButton(
                         child: Text('Submit'),

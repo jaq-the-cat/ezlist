@@ -13,7 +13,12 @@ class Ezlist extends StatelessWidget {
                 visualDensity: VisualDensity.adaptivePlatformDensity,
                 brightness: Brightness.dark,
                 primaryColor: Colors.deepOrange,
-                accentColor: Colors.deepOrange,
+                accentColor: Colors.orange,
+                elevatedButtonTheme: ElevatedButtonThemeData(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.deepOrange,
+                    ),
+                ),
             ),
             home: Scaffold(
                 appBar: AppBar(

@@ -16,10 +16,9 @@ class _ListWState extends State<ListW> {
 
     _ListWState() {
         widgets = [
-            FlatButton(
+            ElevatedButton(
                 onPressed: onNewItemPressed,
                 child: Text("New Item"),
-                color: Colors.orange,
             ),
             SizedBox(height: 10),
         ];
@@ -98,7 +97,7 @@ class ListWItem extends StatelessWidget {
                     IconButton(
                         iconSize: 20,
                         onPressed: this.onPressed,
-                        icon: Icon(Icons.delete),
+                        icon: Icon(Icons.delete, color: Colors.deepOrange),
                     ),
                 ],
             ),
