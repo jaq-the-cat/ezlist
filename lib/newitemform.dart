@@ -21,7 +21,9 @@ class _NewItemFormState extends State<NewItemForm> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                    TextFormField(),
+                    Expanded(
+                        child: TextFormField(),
+                    ),
                     ElevatedButton(
                         child: Text('Submit'),
                         onPressed: () {},
