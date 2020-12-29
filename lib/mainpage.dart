@@ -57,7 +57,7 @@ class _ListWState extends State<ListW> {
                 ), 10);
             }
 
-            List<int> keys = list.keys;
+            List<int> keys = list.keys.toList();
             keys.sort();
             keys.reversed.forEach((k) {
                 addToWidgets(ListWItem(text: list[k], onPressed: () => removeAt(k)), 10); // re-add them
