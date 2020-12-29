@@ -13,23 +13,7 @@ class _ListWState extends State<ListW> {
     int i = 0;
     Map<int, String> list = {};
     bool inputThere = false;
-    List<Widget> widgets;
-
-    _ListWState() {
-        widgets = [
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                    ElevatedButton(
-                        onPressed: onNewItemPressed,
-                        child: Text("New Item"),
-                    ),
-                ],
-            ),
-            SizedBox(height: 10),
-        ];
-    }
+    List<Widget> widgets = [];
 
     // callbacks
     void onNewItemPressed() {
@@ -55,12 +39,22 @@ class _ListWState extends State<ListW> {
     void buildWidgets() {
         print("${this.widgets}");
         setState(() {
-            if (widgets.length > 2)
-                widgets.removeRange(2, widgets.length); // clear list widgets
+            widgets.clear();
 
             if (this.inputThere) {
                 addToWidgets(NewItemForm(onSubmit: onSubmitPressed), 30);
                 this.inputThere = true;
+            } else {
+                addToWidgets(Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                        ElevatedButton(
+                            onPressed: onNewItemPressed,
+                            child: Text("New Item"),
+                        ),
+                    ],
+                ), 10);
             }
 
             list.forEach((k, e) {
