@@ -31,7 +31,9 @@ class _ListWState extends State<ListW> {
     Widget build(BuildContext context) {
         return Wrap(
             runSpacing: 15,
-            children: buildWidgets(),
+            children: <Widget>[
+
+            ] + buildWidgets(),
         );
     }
 }
@@ -49,7 +51,7 @@ class ListWItem extends StatelessWidget {
             padding: EdgeInsets.only(left: 10),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                     Text(
                         text,
                         style: TextStyle(
