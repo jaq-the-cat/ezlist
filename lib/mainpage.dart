@@ -10,7 +10,8 @@ class ListW extends StatefulWidget {
 
 class _ListWState extends State<ListW> {
 
-    List<String> list = ["Hello", "Goodbye"];
+    int i = 0;
+    Map<int, String> list = {};
     bool input = false;
     List<Widget> widgets;
 
@@ -33,20 +34,18 @@ class _ListWState extends State<ListW> {
     void onSubmitPressed(String e) {
         setState(() {
             this.input = false;
-            list.insert(0, e);
+            add(e);
         });
     }
 
-    void onDeletePressed() {}
-
     void add(String e) =>
-        setState(() => list.add(e));
+        setState(() {
+            list[i] = e;
+            i++;
+        });
 
-    void remove(String e) =>
-        setState(() => list.remove(e));
-
-    void editAt(int i, String e) =>
-        setState(() => list[i] = e);
+    void removeAt(int i) =>
+        setState(() => list.remove(i));
 
     void addToWidgets(Widget w, double separator) {
         widgets.add(w);
@@ -59,8 +58,10 @@ class _ListWState extends State<ListW> {
         if (input)
             addToWidgets(NewItemForm(onSubmit: onSubmitPressed), 30);
 
-        for (String e in list)
-            addToWidgets(ListWItem(text: e, onPressed: onDeletePressed), 10); // re-add them
+        list.forEach((i, e) {
+            addToWidgets(ListWItem(text: e, onPressed: () => removeAt(i)), 10); // re-add them
+        });
+        for (String e in list.values)
 
         widgets.removeAt(widgets.length-1); // remove last SizedBox
     }
