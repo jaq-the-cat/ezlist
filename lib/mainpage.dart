@@ -60,25 +60,23 @@ class ListWItem extends StatelessWidget {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                    Container(
-                        child: Text(
-                            text,
-                            style: TextStyle(
-                                fontSize: 18,
-                            ),
-                        ),
-                        padding: EdgeInsets.only(left: 8),
-                        decoration: BoxDecoration(
-                            border: Border(
-                                left: BorderSide(width: 1.25, color: Colors.orangeAccent),
-                            ),
+                    Text(
+                        text,
+                        style: TextStyle(
+                            fontSize: 18,
                         ),
                     ),
                     IconButton(
+                        iconSize: 20,
                         onPressed: () {},
-                        icon: Icon(Icons.delete, size: 20),
+                        icon: Icon(Icons.delete),
                     ),
                 ],
+            ),
+            decoration: BoxDecoration(
+                border: Border(
+                    left: BorderSide(width: 1.25, color: Colors.orangeAccent),
+                ),
             ),
         );
     }
