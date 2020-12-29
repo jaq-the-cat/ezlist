@@ -10,7 +10,7 @@ class ListW extends StatefulWidget {
 class _ListWState extends State<ListW> {
 
     List<String> list = ["Hello", "Goodbye"];
-
+    bool input = false;
     List<Widget> widgets = [
         FlatButton(
             onPressed: () {},
@@ -29,12 +29,20 @@ class _ListWState extends State<ListW> {
     void editAt(int i, String e) =>
         setState(() => list[i] = e);
 
+    void addToWidgets(Widget w) {
+        widgets.add(w);
+        widgets.add(SizedBox(height: 10));
+    }
+
     void buildWidgets() {
         widgets.removeRange(2, widgets.length); // clear list widgets
-        for (String e in list) {
-            widgets.add(ListWItem(text: e));
-            widgets.add(SizedBox(height: 10));
-        } // re-add them
+
+        if (input)
+            addToWidgets(TextFormField());
+
+        for (String e in list)
+            addToWidgets(ListWItem(text: e)); // re-add them
+
         widgets.removeAt(widgets.length-1); // remove last SizedBox
     }
 
