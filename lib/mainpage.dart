@@ -31,8 +31,8 @@ class _ListWState extends State<ListW> {
         setState(() => this.input = true);
     }
 
-    void onAcceptPressed() {
-            setState(() => this.input = false);
+    void onSubmitPressed() {
+        setState(() => this.input = false);
     }
 
     void onDeletePressed() {}
@@ -55,7 +55,7 @@ class _ListWState extends State<ListW> {
         widgets.removeRange(2, widgets.length); // clear list widgets
 
         if (input)
-            addToWidgets(ListWItem(text: "New", onPressed: onAcceptPressed));
+            addToWidgets(NewItemForm(onSubmit: onSubmitPressed));
 
         for (String e in list)
             addToWidgets(ListWItem(text: e, onPressed: onDeletePressed)); // re-add them
