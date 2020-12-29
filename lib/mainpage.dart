@@ -20,9 +20,39 @@ class _ListWState extends State<ListW> {
     void editAt(int i, String e) =>
         setState(() => list[i] = e);
 
+    List<Widget> buildWidgets() {
+        List<Widget> c = [];
+        for (String e in list)
+            c.add(ListWItem(text: e));
+        return c;
+    }
+
     @override
     Widget build(BuildContext context) {
         return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: buildWidgets(),
+        );
+    }
+}
+
+class ListWItem extends StatelessWidget {
+    ListWItem({Key key, @required this.text}) : super(key: key);
+
+    final String text;
+
+    @override
+    Widget build(BuildContext context) {
+        return Row(
+            children: [
+                Text(
+                    text
+                ),
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.delete),
+                ),
+            ]
         );
     }
 }
