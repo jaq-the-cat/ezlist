@@ -9,7 +9,7 @@ class ListW extends StatefulWidget {
 
 class _ListWState extends State<ListW> {
 
-    List<String> list = [];
+    List<String> list = ["Hello", "Goodbye"];
 
     void add(String e) =>
         setState(() => list.add(e));
@@ -29,8 +29,8 @@ class _ListWState extends State<ListW> {
 
     @override
     Widget build(BuildContext context) {
-        return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        return Wrap(
+            runSpacing: 10,
             children: buildWidgets(),
         );
     }
@@ -43,16 +43,26 @@ class ListWItem extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        return Row(
-            children: [
-                Text(
-                    text
+        return Container(
+            padding: EdgeInsets.only(left: 5),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                    Text(
+                        text
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.delete),
+                    ),
+                ],
+            ),
+            decoration: BoxDecoration(
+                border: Border.all(
+                    color: Colors.orangeAccent,
+                    width: 1,
                 ),
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.delete),
-                ),
-            ]
+            )
         );
     }
 }
