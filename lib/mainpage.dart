@@ -56,6 +56,7 @@ class ListWItem extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Container(
+            height: 35,
             padding: EdgeInsets.only(left: 10),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
