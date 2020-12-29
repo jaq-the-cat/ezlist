@@ -11,22 +11,30 @@ class _ListWState extends State<ListW> {
 
     List<String> list = ["Hello", "Goodbye"];
     bool input = false;
-    List<Widget> widgets = [
-        FlatButton(
-            onPressed: () {},
-            child: Text("New Item"),
-            color: Colors.orange,
-        ),
-        SizedBox(height: 10),
-    ];
+    List<Widget> widgets;
 
+    _ListWState() {
+        widgets = [
+            FlatButton(
+                onPressed: onNewItemPressed,
+                child: Text("New Item"),
+                color: Colors.orange,
+            ),
+            SizedBox(height: 10),
+        ];
+    }
+
+    // callbacks
     void onNewItemPressed() {
-        setState(() => input = true);
+        print("$this.input");
+        setState(() => this.input = true);
     }
 
     void onAcceptPressed() {
-            setState(() => input = false);
+            setState(() => this.input = false);
     }
+
+    void onDeletePressed() {}
 
     void add(String e) =>
         setState(() => list.add(e));
@@ -49,7 +57,7 @@ class _ListWState extends State<ListW> {
             addToWidgets(ListWItem(text: "New", onPressed: onAcceptPressed));
 
         for (String e in list)
-            addToWidgets(ListWItem(text: e, onPressed: onNewItemPressed)); // re-add them
+            addToWidgets(ListWItem(text: e, onPressed: onDeletePressed)); // re-add them
 
         widgets.removeAt(widgets.length-1); // remove last SizedBox
     }
@@ -88,7 +96,7 @@ class ListWItem extends StatelessWidget {
                     ),
                     IconButton(
                         iconSize: 20,
-                        onPressed: () {},
+                        onPressed: this.onPressed,
                         icon: Icon(Icons.delete),
                     ),
                 ],
