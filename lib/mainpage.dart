@@ -27,22 +27,16 @@ class _ListWState extends State<ListW> {
 
     // callbacks
     void onNewItemPressed() {
-        print("$this.input");
         setState(() => this.input = true);
     }
 
     void onSubmitPressed(String e) {
         setState(() {
             this.input = false;
-            add(e);
-        });
-    }
-
-    void add(String e) =>
-        setState(() {
             list[i] = e;
             i++;
         });
+    }
 
     void removeAt(int i) =>
         setState(() => list.remove(i));
@@ -53,17 +47,18 @@ class _ListWState extends State<ListW> {
     }
 
     void buildWidgets() {
-        widgets.removeRange(2, widgets.length); // clear list widgets
+        setState(() {
+            widgets.removeRange(2, widgets.length); // clear list widgets
 
-        if (input)
-            addToWidgets(NewItemForm(onSubmit: onSubmitPressed), 30);
+            if (input)
+                addToWidgets(NewItemForm(onSubmit: onSubmitPressed), 30);
 
-        list.forEach((i, e) {
-            addToWidgets(ListWItem(text: e, onPressed: () => removeAt(i)), 10); // re-add them
+            list.forEach((i, e) {
+                addToWidgets(ListWItem(text: e, onPressed: () => removeAt(i)), 10); // re-add them
+            });
+
+            widgets.removeAt(widgets.length-1); // remove last SizedBox
         });
-        for (String e in list.values)
-
-        widgets.removeAt(widgets.length-1); // remove last SizedBox
     }
 
     @override
