@@ -30,7 +30,7 @@ class _ListWState extends State<ListW> {
     @override
     Widget build(BuildContext context) {
         return Wrap(
-            runSpacing: 10,
+            runSpacing: 15,
             children: buildWidgets(),
         );
     }
@@ -44,12 +44,15 @@ class ListWItem extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Container(
-            padding: EdgeInsets.only(left: 5),
+            padding: EdgeInsets.only(left: 10),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                     Text(
-                        text
+                        text,
+                        style: TextStyle(
+                            fontSize: 18,
+                        )
                     ),
                     IconButton(
                         onPressed: () {},
@@ -60,8 +63,9 @@ class ListWItem extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border.all(
                     color: Colors.orangeAccent,
-                    width: 1,
+                    width: 1.5,
                 ),
+                borderRadius: BorderRadius.circular(6),
             )
         );
     }
