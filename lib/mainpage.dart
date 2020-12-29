@@ -12,7 +12,7 @@ class _ListWState extends State<ListW> {
 
     int i = 0;
     Map<int, String> list = {};
-    bool input = false;
+    bool inputThere = false;
     List<Widget> widgets;
 
     _ListWState() {
@@ -27,12 +27,12 @@ class _ListWState extends State<ListW> {
 
     // callbacks
     void onNewItemPressed() {
-        setState(() => this.input = true);
+        setState(() => this.inputThere = true);
     }
 
     void onSubmitPressed(String e) {
         setState(() {
-            this.input = false;
+            this.inputThere = false;
             list[i] = e;
             i++;
         });
@@ -47,17 +47,24 @@ class _ListWState extends State<ListW> {
     }
 
     void buildWidgets() {
+        print("${this.widgets}");
         setState(() {
-            widgets.removeRange(2, widgets.length); // clear list widgets
+            if (widgets.length > 2)
+                widgets.removeRange(2, widgets.length); // clear list widgets
 
-            if (input)
+            if (this.inputThere) {
                 addToWidgets(NewItemForm(onSubmit: onSubmitPressed), 30);
+                this.inputThere = true;
+            }
 
-            list.forEach((i, e) {
-                addToWidgets(ListWItem(text: e, onPressed: () => removeAt(i)), 10); // re-add them
-            });
+            List<String> values = list.values.toList();
+            values.sort();
+            values.reversed;
+            for (int i=0; i<values.length; i++)
+                addToWidgets(ListWItem(text: values[i], onPressed: () => removeAt(i)), 10); // re-add them
 
-            widgets.removeAt(widgets.length-1); // remove last SizedBox
+            if (widgets.length > 2)
+                widgets.removeAt(widgets.length-1); // remove last SizedBox
         });
     }
 
