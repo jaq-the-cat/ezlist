@@ -8,6 +8,17 @@ class ListW extends StatefulWidget {
 }
 
 class _ListWState extends State<ListW> {
+
+    List<String> list = [];
+
+    void add(String e) {
+        setState(() => list.add(e));
+    }
+
+    void remove(String e) {
+        setState(() => list.remove(e));
+    }
+
     @override
     Widget build(BuildContext context) {
         return Column(
