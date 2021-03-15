@@ -1,37 +1,64 @@
 import 'package:flutter/material.dart';
-import 'mainpage.dart';
+import 'infoio.dart';
 
-void main() => runApp(Ezlist());
+void main() => runApp(App());
 
-class Ezlist extends StatelessWidget {
+class App extends StatefulWidget {
+    @override
+    State<App> createState() => AppState();
+}
 
+class AppState extends State<App> {
     @override
     Widget build(BuildContext context) {
         return MaterialApp(
-            title: 'ezlist',
+            title: 'EZLIST',
             theme: ThemeData(
                 visualDensity: VisualDensity.adaptivePlatformDensity,
                 brightness: Brightness.dark,
-                primaryColor: Colors.deepOrange,
-                accentColor: Colors.orange,
-                elevatedButtonTheme: ElevatedButtonThemeData(
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors.orange,
-                    ),
-                ),
+                primarySwatch: Colors.deepOrange,
+                accentColor: Colors.deepOrange,
             ),
             home: Scaffold(
                 appBar: AppBar(
                     title: Text('EZLIST'),
                 ),
-                body: SingleChildScrollView(
-                    child: Padding(
-                        padding: EdgeInsets.all(25),
-                        child: SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
-                            child: ListW(),
-                        )
-                    ),
+                floatingActionButton: Builder(builder: (context) => FloatingActionButton(
+                    child: Icon(Icons.add),
+                    onPressed: () {
+                        addItemDialog(context).then((v) => setState(() {}));
+                    }
+                )),
+                body: FutureBuilder(
+                    future: getItems(),
+                    builder: (context, snapshot) {
+                        if (!snapshot.hasData) return Container();
+                        return ListView(
+                            children: List<Widget>.from(
+                                snapshot.data.map((e) => Container(
+                                    margin: EdgeInsets.all(15),
+                                    child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                            Text(
+                                                e,
+                                                style: TextStyle(
+                                                    fontSize:  18,
+                                                ),
+                                            ),
+                                            IconButton(
+                                                icon: Icon(Icons.delete),
+                                                color: Colors.red,
+                                                onPressed: () {
+                                                    removeItem(e).then((v) => setState(() {}));
+                                                },
+                                            ),
+                                        ],
+                                    ),
+                                ))
+                            ),
+                        );
+                    },
                 ),
             ),
         );
