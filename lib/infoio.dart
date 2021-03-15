@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 Future<void> addItem(String text) async {
     final prefs = await SharedPreferences.getInstance();
@@ -33,6 +34,9 @@ Future<String> addItemDialog(BuildContext context) {
                         Column(
                             children: <Widget>[
                                 TextFormField(
+                                    inputFormatters: [
+                                        LengthLimitingTextInputFormatter(25),
+                                      ],
                                     autofocus: true,
                                     controller: ctrl,
                                     decoration: InputDecoration(
@@ -43,7 +47,7 @@ Future<String> addItemDialog(BuildContext context) {
                                         fillColor: Colors.deepOrange,
                                         focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
-                                                    color: Colors.deepOrange,
+                                                color: Colors.deepOrange,
                                             ),
                                         ),
                                     ),
