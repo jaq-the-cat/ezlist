@@ -1,9 +1,9 @@
 # ezlist
 
-Easy listing app for Android and iOS made in Flutter
+Easy listing app for Android
 
-![New Item](./screenshots/new_item.png)
+![New Item](./screenshots/flutter_01.png)
 
-![Items](./screenshots/few_items.png)
+![Items](./screenshots/flutter_02.png)
 
-![Deletion](./screenshots/delete.png)
+![Deletion](./screenshots/flutter_03.png)
