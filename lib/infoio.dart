@@ -1,6 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 Future<void> addItem(String text) async {
     final prefs = await SharedPreferences.getInstance();
