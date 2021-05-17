@@ -42,9 +42,7 @@ class AppState extends State<App> {
                                         children: <Widget>[
                                             FittedBox(
                                                 fit: BoxFit.fitWidth,
-                                                child: Text(
-                                                    e,
-                                                ),
+                                                child: Text(e),
                                             ),
                                             IconButton(
                                                 icon: Icon(Icons.delete),
