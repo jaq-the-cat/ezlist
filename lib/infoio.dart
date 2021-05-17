@@ -33,7 +33,7 @@ Future<String> addItemDialog(BuildContext context) {
                         Column(
                             children: <Widget>[
                                 TextFormField(
-                                    maxLength: 18,
+                                    maxLength: 32,
                                     autofocus: true,
                                     controller: ctrl,
                                     decoration: InputDecoration(

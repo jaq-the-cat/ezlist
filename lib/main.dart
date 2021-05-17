@@ -40,10 +40,10 @@ class AppState extends State<App> {
                                     child: Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                            Text(
-                                                e,
-                                                style: TextStyle(
-                                                    fontSize:  18,
+                                            FittedBox(
+                                                fit: BoxFit.fitWidth,
+                                                child: Text(
+                                                    e,
                                                 ),
                                             ),
                                             IconButton(
