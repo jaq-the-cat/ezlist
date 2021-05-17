@@ -40,16 +40,16 @@ class AppState extends State<App> {
                                     child: Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                            FittedBox(
-                                                fit: BoxFit.fitWidth,
-                                                child: Text(e),
-                                            ),
                                             IconButton(
                                                 icon: Icon(Icons.delete),
                                                 color: Colors.red,
                                                 onPressed: () {
                                                     removeItem(e).then((v) => setState(() {}));
                                                 },
+                                            ),
+                                            FittedBox(
+                                                fit: BoxFit.fitWidth,
+                                                child: Text(e),
                                             ),
                                         ],
                                     ),
